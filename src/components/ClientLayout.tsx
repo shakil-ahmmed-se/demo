@@ -1,11 +1,11 @@
+'use client'
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-import "./globals.css";
+import { usePathname } from "next/navigation";  
+
 import { AppSidebar } from "@/components/dashboard/Sidebar";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import Header from "@/components/dashboard/Header";
-import ClientLayout from "@/components/ClientLayout";
-
 
 const poppin = Poppins({
   variable: "--poppin",
@@ -13,39 +13,29 @@ const poppin = Poppins({
   weight: "400",
 });
 
-
 export const metadata: Metadata = {
   title: "CodenVibe",
   description: "CodenVibe Dashboard",
 };
 
-export default function RootLayout({
+export default function ClientLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
+  const pathname = usePathname(); 
+
+  const isAuthPage = pathname.startsWith("/login"); 
+
   return (
     <html lang="en">
-      {/* <body
-        className={poppin.className}
-      >
-        {children}
-      </body> */}
-
-      {/* <body className={poppin.className}>
-          <Header/>
+      <body className={poppin.className}>
+        {!isAuthPage && <Header />}  
         <SidebarProvider>
-          <AppSidebar />
-          <main>
-            <SidebarTrigge />
+          {!isAuthPage && <AppSidebar />}  
+          <main className={`flex-1 ${isAuthPage ? "w-full" : ""}`}> 
             {children}
           </main>
         </SidebarProvider>
-      </body> */}
-      <body className={poppin.className}>
-        <ClientLayout>{children}</ClientLayout>
       </body>
-
     </html>
   );
 }
