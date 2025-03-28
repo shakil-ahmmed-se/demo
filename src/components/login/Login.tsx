@@ -26,14 +26,14 @@ export default function LoginPage() {
         <div className="relative flex flex-col lg:flex-row w-11/12 md:w-3/4 lg:w-2/3 bg-white shadow-lg rounded-2xl overflow-hidden mt-10 gap-x-10">
           {/* left */}
           <div className="w-full lg:w-1/2 p-8">
-            <h2 className="text-sky-500 font-bold text-2xl pb-2">Log in</h2>
+            <h2 className="text-[#238DB2] font-bold text-2xl pb-2">Log in</h2>
             <p className="text-gray-600 pb-6">Welcome back to your account</p>
             <form>
               <div className="mb-4">
                 <label className="block text-gray-700 pb-2">Email</label>
                 <div className="relative">
                   <MdEmail
-                    className="absolute left-3 top-1/2 transform -translate-y-1/2 text-sky-300"
+                    className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#238DB2]"
                     size={20}
                   />
                   <input
@@ -41,7 +41,7 @@ export default function LoginPage() {
                     placeholder="Enter your email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="border border-gray-300 py-3 pl-10 pr-4 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-sky-400"
+                    className="border border-gray-300 py-3 pl-10 pr-4 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-[#238DB2]"
                   />
                 </div>
               </div>
@@ -50,7 +50,7 @@ export default function LoginPage() {
                 <label className="block text-gray-700 pb-2">Password</label>
                 <div className="relative">
                   <FaLock
-                    className="absolute text-sky-300 left-3 top-1/2 transform -translate-y-1/2 "
+                    className="absolute text-[#238DB2] left-3 top-1/2 transform -translate-y-1/2 "
                     size={20}
                   />
                   <input
@@ -82,14 +82,14 @@ export default function LoginPage() {
               <div className="text-right mb-4">
                 <Link
                   href="/forget-password"
-                  className="text-sky-400 hover:underline"
+                  className="text-[#238DB2] hover:underline"
                 >
                   Forgot Password?
                 </Link>
               </div>
               <button
                 type="submit"
-                className="w-full bg-sky-500 text-white py-3 rounded-xl hover:bg-sky-600 transition duration-200"
+                className="w-full bg-[#238DB2] text-white py-3 rounded-xl hover:bg-sky-600 transition duration-200"
               >
                 Login
               </button>
@@ -98,19 +98,19 @@ export default function LoginPage() {
                 <span className="px-3 text-gray-400">OR</span>
                 <hr className="flex-grow border-gray-300" />
               </div>
-              <button className="w-full flex justify-center items-center bg-gray-100 py-3 rounded-xl border border-gray-300 hover:bg-gray-200 transition duration-200">
+              <button className="w-full flex justify-center items-center bg-[#FFFFFF] py-3 rounded-xl border border-gray-300 hover:bg-gray-200 transition duration-200">
                 <FcGoogle size={24} className="mr-2" /> Login with Google
               </button>
             </form>
           </div>
 
-          <div className="bg-sky-200 w-1/7 left-[45%] top-8 z-30 h-auto rounded-[50%] absolute ">
+          <div className="bg-gradient-to-b from-[#D4EEF7] via-[#CFECF7] to-[#A6E7FF] w-1/7 left-[45%] top-8 z-30 h-auto rounded-[50%] absolute ">
             <Image src={NLogo} alt="N shape logo" className="w-auto " />
           </div>
 
           {/* right*/}
-          <div className="hidden lg:flex w-1/2 bg-sky-300 justify-center items-center relative">
-            <Image src={loginItem} alt="Login bg" className="w-auto " />
+          <div className="hidden lg:flex w-1/2 bg-[#D8F5FF] justify-center items-center relative">
+            <Image src={loginItem} alt="Login bg" className=" " />
           </div>
         </div>
       </div>
@@ -118,7 +118,7 @@ export default function LoginPage() {
       <div>
         <p className="text-center text-gray-600 my-10">
           Don’t have an account?{" "}
-          <Link href="/register" className="text-sky-400 hover:underline">
+          <Link href="/register" className="text-[#238DB2] hover:underline">
             Register now!
           </Link>
         </p>

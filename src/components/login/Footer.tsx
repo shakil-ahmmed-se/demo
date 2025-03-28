@@ -7,6 +7,8 @@ import logo from "../../../public/login/logo.png";
 
 export default function Footer() {
   return (
+
+    <>
     <footer className="flex justify-between items-center mt-0 px-6 py-8 bg-gray-200">
 
       <div className="text-xl font-semibold">
@@ -34,9 +36,13 @@ export default function Footer() {
         Privacy Policy
         </Link>
         <Link href={"/terms"}>
-        Terms of Service
+       TOS
         </Link>
       </div>
     </footer>
+    <div className="bg-[#515151] py-2 text-center">
+        <h5 className="text-white">All rights reserve </h5>
+      </div>
+    </>
   );
 }

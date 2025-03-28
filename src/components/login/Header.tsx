@@ -7,7 +7,7 @@ import logo from "../../../public/login/logo.png";
 
 export default function Header() {
   return (
-    <nav className="flex justify-between items-center px-6 py-6 bg-gray-100 shadow-md">
+    <nav className="flex justify-between items-center px-6 py-6 bg-[#F1F1F1] shadow-md">
       {/* Logo */}
       <div className="text-xl font-semibold">
         <Image src={logo} alt="CodenVibe" className="h-8 w-auto"/>
@@ -30,12 +30,12 @@ export default function Header() {
           </Link>
         </div>
 
-        <Button variant="default" className="bg-sky-400 hover:bg-sky-500 cursor-pointer">
+        <Button variant="default" className="bg-[#238DB2] hover:bg-sky-500 cursor-pointer">
           Login
         </Button>
         <Button
           variant="outline"
-          className="border-blue-500 text-blue-500 hover:bg-blue-100 cursor-pointer"
+          className="border-[#238DB2] text-[#238DB2] hover:bg-blue-100 cursor-pointer"
         >
           Register
         </Button>
