@@ -33,7 +33,7 @@ const RevenueChart = () => {
   const [activeIndex, setActiveIndex] = useState(9); // Highlighted bar (Oct)
 
   return (
-    <div className="p-6 bg-white border rounded-lg shadow-md w-full">
+    <div className="p-6 bg-white border rounded-lg shadow-md w-full mt-16">
       <h2 className="text-gray-800 text-lg font-semibold mb-4">Revenue</h2>
       <ResponsiveContainer width="100%" height={250}>
         <BarChart data={data} margin={{ top: 10, right: 10, left: 0, bottom: 30 }}>

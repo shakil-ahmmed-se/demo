@@ -46,11 +46,11 @@ export default function Home() {
            ]}
            clients={["Mark Lee", "John Doe", "Jane Smith"]}
           />
-          <div className="grid grid-cols-2">
-           <div>
+          <div className="grid grid-cols-2 gap-0">
+           <div className="w-full">
            <Expense/>
            </div>
-           <div>
+           <div className="w-full">
             <ActivityLog/>
            </div>
           </div>
@@ -59,6 +59,7 @@ export default function Home() {
         <div className="">
           <TeamMemberList teamMembers={teamMembers} />
           <TeamMemberList teamMembers={teamMembers} />
+          <BillingHistoryButton/>
           <BillingHistoryButton/>
         </div>
       </div>
