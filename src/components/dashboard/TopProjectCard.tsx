@@ -19,7 +19,7 @@ export default function TopProjectCards() {
     //         <div className="bg-red-500 w-1/4">div-4</div>
     //     </div>
     // </div>
-    <div className="flex gap-3 mx-4 p-4">
+    <div className="flex gap-3  p-4 ">
       {projectData.map((project, index) => (
         <div
           key={index}
@@ -32,12 +32,12 @@ export default function TopProjectCards() {
             </span>
             <IoArrowForwardCircleOutline className="-rotate-45 group-hover:bg-white group-hover:text-[#238DB2] h-auto w-10 text-gray-500 transition duration-200 rounded-[50px] p-0" size={20} />
           </div>
-          <div className="text-3xl font-bold text-gray-900 group-hover:text-white">
+          <div className="text-5xl font-bold text-gray-900 group-hover:text-white">
             {project.count}
           </div>
 
           
-          <div className="absolute bottom-[-80px] right-[-80px] w-48 h-48 rounded-full transition duration-200 bg-gradient-to-b from-[#BBE3F2] to-[#238DB2]"></div>
+          <div className="absolute bottom-[-95px] right-[-85px] w-48 h-48 rounded-full transition duration-200 bg-gradient-to-b from-[#BBE3F2] to-[#238DB2]"></div>
         </div>
       ))}
     </div>

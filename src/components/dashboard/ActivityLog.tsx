@@ -14,8 +14,8 @@ const activities: Activity[] = [
 
 const ActivityLog: React.FC = () => {
   return (
-    <div className="border border-gray-200 rounded-lg p-4 shadow-md bg-white w-full max-w-md h-full">
-      <div className="flex justify-between items-center mb-3">
+    <div className="border border-gray-200 rounded-lg p-4 shadow-md bg-white w-full  h-full">
+      <div className="flex justify-between items-center mb-3 ">
         <h2 className="text-lg font-semibold">Activity log</h2>
         <button className="bg-[#238DB2] text-white px-3 py-1 rounded-md text-sm hover:bg-blue-500">
           View All

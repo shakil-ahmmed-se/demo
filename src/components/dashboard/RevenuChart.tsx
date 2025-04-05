@@ -35,14 +35,14 @@ const RevenueChart = () => {
   return (
     <div className="p-6 bg-white border rounded-lg shadow-md w-full mt-16">
       <h2 className="text-gray-800 text-lg font-semibold mb-4">Revenue</h2>
-      <ResponsiveContainer width="100%" height={250}>
-        <BarChart data={data} margin={{ top: 10, right: 10, left: 0, bottom: 30 }}>
+      <ResponsiveContainer width="100%" height={300}>
+        <BarChart data={data} margin={{ top: 10, right: 10, left: 0, bottom: -10 }}>
           <XAxis dataKey="month" tick={{ fill: "#666" }} />
           <YAxis tick={{ fill: "#666" }} tickFormatter={(value) => `${value / 1000}k$`} />
           <Tooltip content={<CustomTooltip />} cursor={{ fill: "transparent" }} />
           <Bar
             dataKey="revenue"
-            radius={[20, 20, 0, 0]}
+            radius={[30, 30, 30, 30]}
             onMouseOver={(data, index) => setActiveIndex(index)}
             onMouseOut={() => setActiveIndex(9)}
           >
