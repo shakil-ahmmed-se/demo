@@ -49,17 +49,17 @@ const items = [
   },
   {
     title: "Ticket",
-    url: "#",
+    url: "/tickets",
     icon: Ticket,
   },
   {
     title: "Billing",
-    url: "#",
+    url: "/billing",
     icon: DollarSign,
   },
   {
     title: "Settings",
-    url: "#",
+    url: "settings",
     icon: Settings,
   },
 ];

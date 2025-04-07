@@ -1,7 +1,7 @@
 "use client";
 
-import ClientOverView from "@/components/clients/ClientOverView";
 import Settings from "@/components/team/Settings";
+import TeamOverView from "@/components/team/TeamOverView";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import React from "react";
@@ -65,11 +65,11 @@ const initialTeamMemberData: TeamMember[] = [
   },
 ];
 
-const ClientDetails = () => {
-  const clientId = Number(useParams().clientId);
-  console.log("team id", clientId);
+const TeamDetails = () => {
+  const teamId = Number(useParams().teamId);
+  console.log("team id", teamId);
   const teamMembers = initialTeamMemberData.filter(
-    (member) => member.id === clientId
+    (member) => member.id === teamId
   );
   console.log(teamMembers);
 
@@ -77,14 +77,14 @@ const ClientDetails = () => {
     <div>
       <div>
         {teamMembers.map((team) => (
-          <div key={team.id}>
-            <div key={team.id} className="flex  items-center gap-x-2 mx-10 my-5">
+          <>
+            <div key={team.id} className="flex  items-center gap-x-2 m-3">
               <Image
                 src={"/dashboard/profile.jpeg"}
                 alt={team.name}
                 width={40}
-                height={20}
-                className="rounded-[100%] w-10 h-10 mr-4"
+                height={40}
+                className="rounded-full mr-4"
               />
               <h3 className="text-xl font-bold">{team.name}</h3>
             </div>
@@ -93,37 +93,28 @@ const ClientDetails = () => {
 
             <div className="flex justify-between  bg-white shadow drop-shadow-2xl rounded-2xl p-10 mx-10 ">
               <div>
-                <h4 className="text-lg font-bold">Details</h4>
+                <h4 className="text-lg font-bold"> Personal information</h4>
                 <div className=" space-y-5">
                   <div className="mt-5">
                     <span className="text-gray-500">Name </span> <br />
                     <span>{team.name}</span>
                   </div>
                   <div>
-                    <span className="text-gray-500">Email</span> <br />
-                    <span>demo@gmail.com</span>
-                  </div>
-                  <div>
-                    <span className="text-gray-500">Phone</span> <br />
-                    <span>+8801923123</span>
+                    <span className="text-gray-500">Deparment</span> <br />
+                    <span>{team.department}</span>
                   </div>
                 </div>
               </div>
               <div>
                 <div>
-                  <span>Last Contact</span>
+                  <span>Date</span>
                   <br />
                   <span className="text-gray-500">02-04-2025</span>
                 </div>
                 <div className="mt-5">
-                  <span className="text-gray-500"> Company </span>
+                  <span className="text-gray-500"> Completed Task </span>
                   <br />
-                  <span>CodenVibe</span>
-                </div>
-                <div className="mt-5">
-                  <span className="text-gray-500"> Projects </span>
-                  <br />
-                  <span>6</span>
+                  <span>{22}</span>
                 </div>
               </div>
               <div className="">
@@ -134,11 +125,54 @@ const ClientDetails = () => {
               </div>
             </div>
 
-           
+            {/* Work Information */}
+            <div className="flex justify-between  bg-white shadow drop-shadow-2xl rounded-2xl p-10 mx-10 mt-10">
+              <div>
+                <h4 className="text-lg font-bold"> Work information</h4>
+                <div className=" space-y-5">
+                  <div className="mt-5">
+                    <span className="text-gray-500">Role </span> <br />
+                    <span>{team.role}</span>
+                  </div>
+                  <div>
+                    <span className="text-gray-500">Deparment</span> <br />
+                    <span>{team.department}</span>
+                  </div>
+
+                  <div className="mt-5">
+                    <span className="text-gray-500">Phone</span> <br />
+                    <span>+88012332432</span>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <span className="text-gray-500">Join Date</span>
+                  <br />
+                  <span>20-05-2025</span>
+                </div>
+                <div className="mt-5">
+                  <span className="text-gray-500"> Completed Task </span>
+                  <br />
+                  <span>{22}</span>
+                </div>
+                <div className="mt-5">
+                  <span className="text-gray-500"> Email </span>
+                  <br />
+                  <span>demo@gmail.com</span>
+                </div>
+              </div>
+              <div className="">
+                <button className=" bg-[#238DB2] px-3 py-2 flex items-center gap-x-1 text-white rounded-md">
+                  <TbEdit />
+                  Edit
+                </button>
+              </div>
+            </div>
 
             {/* team overview */}
             <div className="mx-7">
-              <ClientOverView
+              <TeamOverView
                 clientName="Mark Lee"
                 companyName="Company Name"
                 clientImage="/dashboard/profile.jpeg"
@@ -157,13 +191,15 @@ const ClientDetails = () => {
                 clients={["Mark Lee", "John Doe", "Jane Smith"]}
               />
             </div>
+
+            
             <Settings/>
             
-          </div>
+          </>
         ))}
       </div>
     </div>
   );
 };
 
-export default ClientDetails;
+export default TeamDetails;

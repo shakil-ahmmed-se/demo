@@ -24,11 +24,13 @@ import { IoIosSearch, IoMdArrowDropright } from "react-icons/io";
 import { FaRegPlusSquare } from "react-icons/fa";
 import { CiExport } from "react-icons/ci";
 import Link from "next/link";
-import AddProjectDialog from "./AddProjectDialog";
-import AddProjectModal from "./AddProjectDialog";
+import AddProjectModal from "../projects/AddProjectDialog";
+// import AddProjectDialog from "./AddProjectDialog";
+
 
 interface Project {
   id: number;
+  invoice: string;
   project: string;
   assignTo: string;
   date: string;
@@ -43,6 +45,7 @@ interface Project {
 const initialData: Project[] = [
   {
     id: 1,
+    invoice: '#I-313446',
     project: "HR Management",
     assignTo: "05",
     date: "12-01-24",
@@ -54,6 +57,7 @@ const initialData: Project[] = [
   },
   {
     id: 2,
+    invoice: '#I-313446',
     project: "Admin Panel",
     assignTo: "05",
     date: "10-01-24",
@@ -65,6 +69,7 @@ const initialData: Project[] = [
   },
   {
     id: 3,
+    invoice: '#I-313446',
     project: "Client Portal",
     assignTo: "05",
     date: "07-01-24",
@@ -76,6 +81,7 @@ const initialData: Project[] = [
   },
   {
     id: 4,
+    invoice: '#I-313446',
     project: "HR Management",
     assignTo: "05",
     date: "07-01-24",
@@ -87,6 +93,7 @@ const initialData: Project[] = [
   },
   {
     id: 5,
+    invoice: '#I-313446',
     project: "HR Management",
     assignTo: "05",
     date: "12-01-24",
@@ -98,6 +105,7 @@ const initialData: Project[] = [
   },
   {
     id: 6,
+    invoice: '#I-313446',
     project: "HR Management",
     assignTo: "05",
     date: "12-01-24",
@@ -109,6 +117,7 @@ const initialData: Project[] = [
   },
   {
     id: 7,
+    invoice: '#I-313446',
     project: "HR Management",
     assignTo: "05",
     date: "12-01-24",
@@ -120,7 +129,7 @@ const initialData: Project[] = [
   },
 ];
 
-export default function ProjectTable({title}: {title: any}) {
+export default function BillingTable() {
   const [projects, setProjects] = useState<Project[]>(initialData);
   const [currentPage, setCurrentPage] = useState(1);
   const [sortBy, setSortBy] = useState<string>("");
@@ -128,7 +137,7 @@ export default function ProjectTable({title}: {title: any}) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const addNewProject = (newProject: Project) => {
-    setProjects([...projects, newProject]); // Add the new row at the bottom
+    setProjects([...projects, newProject]); 
     const totalPages = Math.ceil((projects.length + 1) / itemsPerPage);
     setCurrentPage(totalPages);
   };
@@ -145,7 +154,7 @@ export default function ProjectTable({title}: {title: any}) {
     fetchProjects();
   }, []);
 
-  // Sorting logic
+  
   const sortedProjects = [...projects].sort((a, b) => {
     if (sortBy === "project") {
       return a.project.localeCompare(b.project);
@@ -173,7 +182,7 @@ export default function ProjectTable({title}: {title: any}) {
   return (
     <div className="p-4  rounded-lg border mt-10  shadow-md overflow-hidden">
       <div className="flex justify-between items-center mb-4 flex-wrap gap-2">
-        <h2 className="text-lg font-semibold">{title}</h2>
+        <h2 className="text-lg font-semibold">All Projects</h2>
         <div className="flex flex-wrap items-center gap-2 relative">
           <IoIosSearch className="absolute w-4 h-4 top-1/2 left-3 -translate-y-1/2 text-gray-500" />
           <Input
@@ -214,6 +223,7 @@ export default function ProjectTable({title}: {title: any}) {
               <TableHead>
                 <Checkbox />
               </TableHead>
+              <TableHead>Invoice</TableHead>
               <TableHead>Project</TableHead>
               <TableHead>Assign to</TableHead>
               <TableHead>Date</TableHead>
@@ -231,6 +241,11 @@ export default function ProjectTable({title}: {title: any}) {
               <TableRow key={project.id}>
                 <TableCell>
                   <Checkbox />
+                </TableCell>
+                <TableCell>
+                  <div className="border py-2 px-3 rounded-xl">
+                    {project.invoice}
+                  </div>
                 </TableCell>
                 <TableCell>
                   <div className="border py-2 px-3 rounded-xl">

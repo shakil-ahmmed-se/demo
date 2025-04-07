@@ -242,7 +242,7 @@ export default function TeamMemberTable() {
                 <TableCell>
                   <div className="flex space-x-2 border py-2 px-3 rounded-xl">
                     <Link
-                      href={`/team-members/${member.id}`}
+                      href={`/team/${member.id}`}
                       className="cursor-pointer"
                     >
                       <Button variant="ghost" size="sm">

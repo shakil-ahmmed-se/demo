@@ -16,7 +16,7 @@ const ExpenseChart: React.FC = () => {
     <div className="border border-gray-200 rounded-lg p-4 shadow-md bg-white w-full ">
  
       <div className="flex justify-between items-center mb-3">
-        <h2 className="text-lg font-semibold">Expense</h2>
+        <h2 className="text-lg font-semibold">Expsense</h2>
         <div className="flex space-x-1">
           <button
             className={`px-3 py-1 text-sm rounded-md ${

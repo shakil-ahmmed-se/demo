@@ -20,7 +20,7 @@ const milestones: MilestoneData[] = [
 ];
 
 const MileStoneBar: React.FC = () => {
-  const COLORS = ["#3498db", "#ecf0f1"];
+  const COLORS = ["#238DB2", "#ecf0f1"];
 
   return (
     <div className="flex flex-col items-center w-full mt-10">

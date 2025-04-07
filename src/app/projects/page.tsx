@@ -8,7 +8,7 @@ export default function ProjectsPage() {
     <div className=' flex-1 justify-center items-center w-full h-full '>
       <TopProjectCards/>
       {/* <DataTableDemo/> */}
-      <ProjectTable/>
+      <ProjectTable title={'All Projects'}/>
     </div>
   )
 }
