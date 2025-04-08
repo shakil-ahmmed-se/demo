@@ -8,7 +8,7 @@ import { IoMdLogOut } from "react-icons/io";
 
 export default function Header() {
   return (
-    <nav className="flex justify-between items-center px-6 py-6 bg-gray-100 shadow-md">
+    <nav className="flex fixed top-0 left-0 right-0 z-30   justify-between items-center px-6 py-6 bg-gray-100 shadow-md">
       {/* Logo */}
       <div className="text-xl font-semibold">
         <Image src={logo} alt="CodenVibe" className="h-8 w-auto" />

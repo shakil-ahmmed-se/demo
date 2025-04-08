@@ -84,7 +84,7 @@ const TeamDetails = () => {
                 alt={team.name}
                 width={40}
                 height={40}
-                className="rounded-full mr-4"
+                className="rounded-full mr-4 w-14 h-14"
               />
               <h3 className="text-xl font-bold">{team.name}</h3>
             </div>

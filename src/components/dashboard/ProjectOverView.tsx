@@ -5,6 +5,7 @@ import React from "react";
 import Image from "next/image";
 import { RadialBarChart, RadialBar, PolarAngleAxis } from "recharts";
 import { MdEmail } from "react-icons/md";
+import Link from "next/link";
 
 interface TeamMember {
   name: string;
@@ -46,9 +47,11 @@ const ProjectOverview: React.FC<ProjectOverviewProps> = ({
           <h2 className="text-xl font-semibold text-gray-800">
             Project Overview
           </h2>
-          <button className="px-4 py-2 bg-[#238DB2] text-white rounded-md hover:bg-blue-500">
+          <Link href={'/projects'}>
+          <button className="px-4 py-2 bg-[#238DB2] text-white rounded-md hover:bg-blue-400 cursor-pointer">
             View All
           </button>
+          </Link>
         </div>
 
         <div className="mb-6">
@@ -92,9 +95,11 @@ const ProjectOverview: React.FC<ProjectOverviewProps> = ({
                 </span>
               </div>
             </div>
-            <button className="mt-4 text-[#238DB2] hover:underline">
+            <Link href={'/projects'}>
+            <button className="mt-4 text-[#238DB2] hover:underline cursor-pointer">
               View Details
             </button>
+            </Link>
           </div>
 
           <div className="flex flex-col w-3/12 items-center justify-center p-4 border rounded-md">
@@ -139,9 +144,11 @@ const ProjectOverview: React.FC<ProjectOverviewProps> = ({
                 {paymentAmount}
               </div>
             </div>
-            <button className="mt-4 text-[#238DB2] hover:underline">
+           <Link href={'/billing'}>
+           <button className="mt-4 text-[#238DB2] hover:underline cursor-pointer">
               View Details
             </button>
+           </Link>
           </div>
 
           <div className="p-4 border rounded-md w-8/12">
@@ -149,9 +156,11 @@ const ProjectOverview: React.FC<ProjectOverviewProps> = ({
               <h3 className="text-lg font-medium text-gray-700">
                 Total Assigned Member ({totalMembers})
               </h3>
-              <button className="text-[#238DB2] hover:underline">
+              <Link href={'/team'}>
+              <button className="text-[#238DB2] hover:underline cursor-pointer">
                 View All
               </button>
+              </Link>
             </div>
             <div className="grid grid-cols-3 gap-1">
               {teamMembers.map((member, index) => (

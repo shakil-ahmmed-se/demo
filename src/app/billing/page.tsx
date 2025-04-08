@@ -24,7 +24,7 @@ const BillingPage = () => {
     setSearchQuery(e.target.value);
   };
   return (
-    <div>
+    <div className="h-full overflow-x-hidden">
       <div className="flex justify-between items-center mt-5 mx-8">
         <div className="text-[#238DB2] flex font-extrabold gap-x-1">
           <IoReturnUpBackOutline className="w-5 h-5" />

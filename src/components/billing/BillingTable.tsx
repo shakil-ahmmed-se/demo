@@ -302,7 +302,7 @@ export default function BillingTable() {
                 </TableCell>
                 <TableCell>
                   <div className="flex space-x-2">
-                    <Link href={`/projects/${project.id}`} className="cursor-pointer">
+                    <Link href={`/billing/${project.id}`} className="cursor-pointer">
                       <Button variant="ghost" size="sm" className="cursor-pointer">
                         <Eye className="w-4 h-4" />
                       </Button>

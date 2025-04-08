@@ -7,7 +7,7 @@ import logo from "../../../public/login/logo.png";
 
 export default function Header() {
   return (
-    <nav className="flex justify-between items-center px-6 py-6 bg-[#F1F1F1] shadow-md">
+    <nav className="flex fixed top-0 left-0 right-0 justify-between items-center px-6 py-6 bg-[#F1F1F1] shadow-md">
       {/* Logo */}
       <div className="text-xl font-semibold">
         <Image src={logo} alt="CodenVibe" className="h-8 w-auto"/>

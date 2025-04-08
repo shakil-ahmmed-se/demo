@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import { RadialBarChart, RadialBar, ResponsiveContainer } from 'recharts';
 
@@ -58,11 +59,15 @@ const PaymentDetails: React.FC<PaymentDetailsProps> = ({ projects }) => {
               </div>
             )}
           </div>
-          <button className="mt-2 text-blue-500 hover:underline text-sm">View Details</button>
+          <Link href={'/projects'}>
+          <button className="mt-2 text-[#238DB2] hover:underline text-sm cursor-pointer">View Details</button>
+          </Link>
         </div>
       ))}
       <div className="relative flex flex-col items-center justify-center p-4 bg-[#238DB2] rounded-md text-white overflow-hidden">
-        <button className="text-lg font-medium">View All Payments</button>
+        <Link href={'/billing'}>
+        <button className="text-lg font-medium cursor-pointer underline">View All Payments</button>
+        </Link>
         <div className="absolute bottom-[-90px] right-[-80px] w-48 h-48 rounded-full transition duration-200 bg-gradient-to-b from-[#BBE3F2] to-[#238DB2] "></div>
       </div>
     </div>

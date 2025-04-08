@@ -1,9 +1,10 @@
-'use client';
-import React, { useState } from 'react';
-import Image from 'next/image';
-import { MdEmail } from 'react-icons/md';
-import PaymentDetails from './PaymentDetails';
-import ProjectDetails from './ProjectDetails';
+"use client";
+import React, { useState } from "react";
+import Image from "next/image";
+import { MdEmail } from "react-icons/md";
+import PaymentDetails from "./PaymentDetails";
+import ProjectDetails from "./ProjectDetails";
+import Link from "next/link";
 
 interface Project {
   name: string;
@@ -28,15 +29,19 @@ const ClientOverview: React.FC<ClientOverviewProps> = ({
   projects,
   clients,
 }) => {
-  const [activeTab, setActiveTab] = useState<'Payment Details' | 'Project Details'>('Payment Details');
+  const [activeTab, setActiveTab] = useState<
+    "Payment Details" | "Project Details"
+  >("Payment Details");
 
   return (
     <div className="p-6 bg-white rounded-lg shadow-md border my-10">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-xl font-semibold text-gray-800">Client Overview</h2>
-        <button className="px-4 py-2 bg-[#238DB2] text-white rounded-md hover:bg-blue-600">
-          View All
-        </button>
+        <Link href={'/clients'}>
+          <button className="px-4 py-2 bg-[#238DB2] text-white rounded-md hover:bg-blue-400 cursor-pointer">
+            View All
+          </button>
+        </Link>
       </div>
 
       <div className="flex justify-between items-center mb-6">
@@ -52,10 +57,14 @@ const ClientOverview: React.FC<ClientOverviewProps> = ({
             <select
               className="w-full p-1 border rounded-md text-gray-800 text-sm bg-transparent"
               value={clientName}
-              onChange={(e) => console.log('Selected client:', e.target.value)} 
+              onChange={(e) => console.log("Selected client:", e.target.value)}
             >
               {clients.map((client, index) => (
-                <option key={index} value={client} selected={client === clientName}>
+                <option
+                  key={index}
+                  value={client}
+                  selected={client === clientName}
+                >
                   {client}
                 </option>
               ))}
@@ -67,7 +76,9 @@ const ClientOverview: React.FC<ClientOverviewProps> = ({
           </button>
         </div>
         <div className="flex items-center p-2 border text-xl bg-[#F6E6EB] border-[#FF0044] rounded-md">
-          <span className="text-gray-700 font-medium mr-2 pr-2 border-r border-[#FF0044]">Due</span>
+          <span className="text-gray-700 font-medium mr-2 pr-2 border-r border-[#FF0044]">
+            Due
+          </span>
           <span className="text-gray-800 font-semibold">{dueAmount}</span>
         </div>
       </div>
@@ -76,28 +87,28 @@ const ClientOverview: React.FC<ClientOverviewProps> = ({
       <div className="flex space-x-4 mb-6">
         <button
           className={`font-medium pb-1 ${
-            activeTab === 'Payment Details'
-              ? 'text-[#238DB2] border-b-2 border-blue-500'
-              : 'text-gray-500'
+            activeTab === "Payment Details"
+              ? "text-[#238DB2] border-b-2 border-blue-500"
+              : "text-gray-500"
           }`}
-          onClick={() => setActiveTab('Payment Details')}
+          onClick={() => setActiveTab("Payment Details")}
         >
           Payment Details
         </button>
         <button
           className={`font-medium pb-1 ${
-            activeTab === 'Project Details'
-              ? 'text-blue-500 border-b-2 border-blue-500'
-              : 'text-gray-500'
+            activeTab === "Project Details"
+              ? "text-blue-500 border-b-2 border-blue-500"
+              : "text-gray-500"
           }`}
-          onClick={() => setActiveTab('Project Details')}
+          onClick={() => setActiveTab("Project Details")}
         >
           Project Details
         </button>
       </div>
 
       {/* Render the appropriate component based on active tab */}
-      {activeTab === 'Payment Details' ? (
+      {activeTab === "Payment Details" ? (
         <PaymentDetails projects={projects} />
       ) : (
         <ProjectDetails projects={projects} />

@@ -24,6 +24,7 @@ import { IoIosSearch } from "react-icons/io";
 import { CiExport } from "react-icons/ci";
 import Link from "next/link";
 import Image from "next/image";
+import { FaRegPlusSquare } from "react-icons/fa";
 
 interface Client {
   id: number;
@@ -98,6 +99,7 @@ export default function ClientTable() {
   const [currentPage, setCurrentPage] = useState(1);
   const [sortBy, setSortBy] = useState<string>("");
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   // Simulate fetching data from an API
   useEffect(() => {
@@ -148,6 +150,8 @@ export default function ClientTable() {
     setCurrentPage(1); 
   };
 
+  const toggleModal = () => setIsModalOpen(!isModalOpen)
+
   return (
     <div className="p-4 bg-white rounded-lg border mt-10 mx-5 shadow-md overflow-hidden">
 
@@ -174,6 +178,14 @@ export default function ClientTable() {
           </Select>
           <Button variant="outline" className="border-[#238DB2]">
             <CiExport className="w-5 h-5" />
+          </Button>
+
+          <Button
+            onClick={() => setIsModalOpen(true)}
+            variant="outline"
+            className="bg-[#238DB2] text-white"
+          >
+            <FaRegPlusSquare />
           </Button>
         </div>
       </div>
@@ -309,6 +321,77 @@ export default function ClientTable() {
           Next
         </Button>
       </div>
+
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm bg-opacity-30">
+          <div className="bg-white p-6 rounded-xl shadow-lg w-full max-w-md relative">
+            <h2 className="text-xl font-semibold mb-4 text-gray-700">
+              Add New Client
+            </h2>
+
+            <form className="space-y-4">
+              <input
+                type="text"
+                placeholder="Project Name"
+                className="w-full p-2 border rounded-md"
+              />
+              <input
+                type="text"
+                placeholder="Assign To"
+                className="w-full p-2 border rounded-md"
+              />
+              <input
+                type="text"
+                placeholder="Client Name"
+                className="w-full p-2 border rounded-md"
+              />
+              <select className="w-full p-2 border rounded-md">
+                <option value="">Status</option>
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+              </select>
+              <input
+                type="number"
+                placeholder="Total Amount"
+                className="w-full p-2 border rounded-md"
+              />
+              <input
+                type="number"
+                placeholder="Due"
+                className="w-full p-2 border rounded-md"
+              />
+              <input
+                type="number"
+                placeholder="Paid"
+                className="w-full p-2 border rounded-md"
+              />
+
+              <div className="flex justify-end gap-2">
+                <button
+                  type="button"
+                  className="px-4 py-2 text-gray-600 border rounded-md hover:bg-gray-100"
+                  onClick={toggleModal}
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="px-4 py-2 bg-[#238DB2] text-white rounded-md hover:bg-blue-400"
+                >
+                  Save
+                </button>
+              </div>
+            </form>
+
+            <button
+              onClick={toggleModal}
+              className="absolute top-2 right-3 text-gray-400 hover:text-gray-600 text-xl"
+            >
+              &times;
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

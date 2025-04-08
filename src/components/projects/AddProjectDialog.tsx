@@ -101,8 +101,8 @@ export default function AddProjectModal({
   };
 
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="w-full rounded-xl border border-[#238DB2]">
+    <Dialog open={isOpen} onOpenChange={onClose} >
+      <DialogContent className="w-full  rounded-xl border border-[#238DB2]">
         <DialogHeader>
           <DialogTitle className="text-lg font-semibold">Add Project</DialogTitle>
           <Button

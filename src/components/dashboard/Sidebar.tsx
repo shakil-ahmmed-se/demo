@@ -85,7 +85,7 @@ export function AppSidebar() {
       <Sidebar
         className={`fixed inset-y-0 left-0 z-40 w-64 border-r transition-transform duration-300 ease-in-out lg:translate-x-0 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
-        } lg:static lg:w-64`}
+        } lg:static lg:w-full  lg:h-lvh h-full mt-20`}
       >
         <SidebarContent className="px-5 py-5 font-extrabold">
           <SidebarGroup>

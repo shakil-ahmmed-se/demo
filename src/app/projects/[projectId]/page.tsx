@@ -146,9 +146,9 @@ export default function ProjectDetailPage() {
   }
 
   return (
-    <>
+    <div className="h-full overflow-x-hidden">
       <h4 className="text-lg m-10">Projects Details</h4>
-      <div className="w-full mx-10  mt-10 p-6 bg-white rounded-lg border-[#A6E7FF] border">
+      <div className="w-full mx-10  mt-10 p-6 bg-white rounded-lg border-[#A6E7FF] border overflow-x-hidden">
         <div className="flex justify-between items-center mb-10">
           <div>
             <div className="flex items-center gap-4">
@@ -268,6 +268,6 @@ export default function ProjectDetailPage() {
           <TaskList />
         </div>
       </div>
-    </>
+    </div>
   );
 }
