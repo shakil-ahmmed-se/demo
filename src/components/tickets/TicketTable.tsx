@@ -24,8 +24,7 @@ import { IoIosSearch, IoMdArrowDropright } from "react-icons/io";
 import { FaRegPlusSquare } from "react-icons/fa";
 import { CiExport } from "react-icons/ci";
 import Link from "next/link";
-import AddProjectDialog from "./AddProjectDialog";
-import AddProjectModal from "./AddProjectDialog";
+import AddProjectModal from "../projects/AddProjectDialog";
 
 interface Project {
   id: number;
@@ -120,7 +119,7 @@ const initialData: Project[] = [
   },
 ];
 
-export default function ProjectTable({title}: {title: any}) {
+export default function TicketTable({title}: {title: any}) {
   const [projects, setProjects] = useState<Project[]>(initialData);
   const [currentPage, setCurrentPage] = useState(1);
   const [sortBy, setSortBy] = useState<string>("");
@@ -128,7 +127,7 @@ export default function ProjectTable({title}: {title: any}) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const addNewProject = (newProject: Project) => {
-    setProjects([...projects, newProject]); 
+    setProjects([...projects, newProject]); // Add the new row at the bottom
     const totalPages = Math.ceil((projects.length + 1) / itemsPerPage);
     setCurrentPage(totalPages);
   };
@@ -287,7 +286,7 @@ export default function ProjectTable({title}: {title: any}) {
                 </TableCell>
                 <TableCell>
                   <div className="flex space-x-2">
-                    <Link href={`/projects/${project.id}`} className="cursor-pointer">
+                    <Link href={`/tickets/${project.id}`} className="cursor-pointer">
                       <Button variant="ghost" size="sm" className="cursor-pointer">
                         <Eye className="w-4 h-4" />
                       </Button>

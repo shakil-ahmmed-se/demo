@@ -232,8 +232,10 @@ const BillingDetails = () => {
               </div>
             </div>
 
-              <BillingDetailsTable/>
-            <Settings />
+            <div className="w-full ">
+            <BillingDetailsTable/>
+            </div>
+           
           </div>
         ))}
 

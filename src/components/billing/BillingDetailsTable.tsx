@@ -1,154 +1,177 @@
-import { Edit, Eye, Table, Trash } from 'lucide-react';
-import React, { useState } from 'react';
-import { TableBody, TableCell, TableHead, TableHeader, TableRow } from '../ui/table';
-import { Checkbox } from '@radix-ui/react-checkbox';
-import Link from 'next/link';
-import { Button } from '../ui/button';
+"use client";
 
-interface BillinData {
-    id: number;
-    bank: string;
-    account: string;
-    branch : string;
-    routingNumber: string;
-    accountHolder: string;
-    payment: number;
-    date: string;
+import { useState } from "react";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 
-  }
-  
-  // Sample data (to be replaced with API data)
-  const initialBillingData: BillinData[] = [
-    {
-      id: 1,
-      bank: "Bank Asia",
-      account: "AB342342",
-      branch: "Dhaka",
-      routingNumber: "#353323",
-      accountHolder: "Demo",
-      payment: 1200,
-      date: '02-11-2025'
-    },
-    {
-      id: 2,
-      bank: "Dutch Bangla",
-      account: "AB342342",
-      branch: "Dhaka",
-      routingNumber: "#353323",
-      accountHolder: "Demo",
-      payment: 1200,
-      date: '02-11-2025'
-    },
-    {
-      id: 3,
-      bank: "Bank Asia",
-      account: "AB342342",
-      branch: "Dhaka",
-      routingNumber: "#353323",
-      accountHolder: "Demo",
-      payment: 1200,
-      date: '02-11-2025'
-    },
-    {
-      id: 4,
-      bank: "Bank Asia",
-      account: "AB342342",
-      branch: "Dhaka",
-      routingNumber: "#353323",
-      accountHolder: "Demo",
-      payment: 1200,
-      date: '02-11-2025'
-    },
-    
-  ];
+interface Billing {
+  bankName: string,
+  accountNumber: string,
+  branch: string,
+  routing: string,
+  accountHolder: string,
+  payment: string,
+  date: string,
 
-const BillingDetailsTable = () => {
-    const [currentPage, setCurrentPage] = useState(1);
-    const ItemPerPage = 3;
+}
 
-//     const filterData =() => {
+const billingData : Billing[] = [
+  {
+    bankName: "Wells Fargo",
+    accountNumber: "123456789012",
+    branch: "Downtown LA",
+    routing: "021000021",
+    accountHolder: "Denial Mark",
+    payment: "1000.00",
+    date: "12-01-24",
+  },
+  {
+    bankName: "Wells Fargo",
+    accountNumber: "123456789012",
+    branch: "Downtown LA",
+    routing: "021000021",
+    accountHolder: "Denial Mark",
+    payment: "500.00",
+    date: "12-06-24",
+  },
+  {
+    bankName: "",
+    accountNumber: "",
+    branch: "",
+    routing: "",
+    accountHolder: "",
+    payment: "",
+    date: "",
+  },
+]
 
-//     }
+export default function BillingDetailsTable() {
+  const [payments, setPayments] = useState(billingData);
+
+  const totalAmount = 4500;
+  const totalReceived = payments.reduce(
+    (acc, cur) => acc + (parseFloat(cur.payment) || 0),
+    0
+  );
+  const totalDue = totalAmount - totalReceived;
 
 
-//     const totalPages = Math.ceil(filteredTeamMembers.length / itemsPerPage);
-//   const paginatedTeamMembers = filteredTeamMembers.slice(
-//     (currentPage - 1) * itemsPerPage,
-//     currentPage * itemsPerPage
-//   );
-    return (
-        <div>
-            <h3 className='text-2xl font-bold'>Payment Details</h3>
-            <div>
-            <div className="w-full overflow-x-hidden md:min-w-0">
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead className="w-[20px]">
-                <Checkbox />
-              </TableHead>
-              <TableHead className="">Bank Name</TableHead>
-              <TableHead className="">Account Number</TableHead>
-              <TableHead className="">Branch</TableHead>
-              <TableHead className="">Routing</TableHead>
-              <TableHead className="">Account Holder</TableHead>
-              <TableHead className="">Actions</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {initialBillingData.map((member) => (
-              <TableRow key={member.id}>
-                <TableCell>
-                  <Checkbox />
-                </TableCell>
-                <TableCell>
-                  <div className="flex items-center space-x-3">
-                    
-                    <span className="whitespace-nowrap">{member.name}</span>
-                  </div>
-                </TableCell>
-                <TableCell>
-                  <div className="border py-2 px-3 rounded-xl whitespace-nowrap">
-                    {member.role}
-                  </div>
-                </TableCell>
-                <TableCell>
-                  <div className="border py-2 px-3 rounded-xl whitespace-nowrap">
-                    {member.department}
-                  </div>
-                </TableCell>
-                
-                <TableCell className="max-w-[170px]">
-                  <div className="border py-2 px-3 rounded-xl whitespace-wrap  overflow-hidden  w-full ">
-                    {member.lastActivity}
-                  </div>
-                </TableCell>
-                <TableCell>
-                  <div className="flex space-x-2 border py-2 px-3 rounded-xl">
-                    <Link
-                      href={`/team/${member.id}`}
-                      className="cursor-pointer"
-                    >
-                      <Button variant="ghost" size="sm">
-                        <Eye className="w-4 h-4" />
-                      </Button>
-                    </Link>
-                    <Button variant="ghost" size="sm">
-                      <Edit className="w-4 h-4" />
-                    </Button>
-                    <Button variant="ghost" size="sm">
-                      <Trash className="w-4 h-4" />
-                    </Button>
-                  </div>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </div>
-            </div>
-        </div>
-    );
+  const handleInputChange = (index: number, field: string, value: string) => {
+  setPayments((prev) =>
+    prev.map((item, i) =>
+      i === index ? { ...item, [field]: value } : item
+    )
+  );
 };
 
-export default BillingDetailsTable;
+  return (
+    <div className="mx-9 px-7 py-8 shadow-2xl rounded-3xl mb-10 bg-white mt-10">
+      <h3 className="text-2xl font-bold mb-4">Payment Details</h3>
+
+      {payments.map((payment, index) => (
+        <Card key={index} className="mb-4 p-4 shadow-sm">
+          <div className="grid grid-cols-6 gap-4">
+            <div>
+              <label className="">Bank Name</label>
+              <Input
+                placeholder="Enter Bank Name"
+                value={payment.bankName}
+                onChange={(e) =>
+                  handleInputChange(index, "bankName", e.target.value)
+                }
+              />
+            </div>
+            <div>
+              <label htmlFor="accountHolder">Account Number</label>
+              <Input
+                placeholder="Enter Account Number"
+                value={payment.accountNumber}
+                onChange={(e) =>
+                  handleInputChange(index, "accountNumber", e.target.value)
+                }
+              />
+            </div>
+            <div>
+              <label >Branch</label>
+              <Input
+                placeholder="Enter Branch"
+                value={payment.branch}
+                onChange={(e) =>
+                  handleInputChange(index, "branch", e.target.value)
+                }
+              />
+            </div>
+            <div>
+              <label >Routing</label>
+              <Input
+                placeholder="Enter Routing Number"
+                value={payment.routing}
+                onChange={(e) =>
+                  handleInputChange(index, "routing", e.target.value)
+                }
+              />
+            </div>
+            <div>
+              <label > Account Hodler</label>
+              <Input
+                type="text"
+                placeholder="Enter Account Holder"
+                value={payment.accountHolder}
+                onChange={(e) =>
+                  handleInputChange(index, "accountHolder", e.target.value)
+                }
+              />
+            </div>
+            <div className="flex gap-2">
+              <div>
+              <label htmlFor="payment">Payment</label>
+              <Input
+                placeholder="Paid Amount"
+                value={payment.payment}
+                onChange={(e) =>
+                  handleInputChange(index, "payment", e.target.value)
+                }
+              />
+              </div>
+             <div>
+             <label htmlFor="Date">Date</label>
+              <Input
+                placeholder="Receive Date"
+                value={payment.date}
+                onChange={(e) =>
+                  handleInputChange(index, "date", e.target.value)
+                }
+              />
+             </div>
+            </div>
+          </div>
+        </Card>
+      ))}
+
+      <div className="flex justify-between items-center">
+        <div className="flex gap-4 mb-6">
+          <Button className="bg-[#238DB2]">Done</Button>
+          <Button variant="outline">Cancel</Button>
+        </div>
+
+        <div className="w-1/3 rounded-3xl shadow bg-blue-50 text-sm">
+          <CardContent className="p-4 space-y-2">
+            <div className="flex justify-between font-medium">
+              <span>Total Amount</span>
+              <span>${totalAmount.toFixed(2)}</span>
+            </div>
+            <div className="flex justify-between font-medium">
+              <span>Total Received</span>
+              <span>${totalReceived.toFixed(2)}</span>
+            </div>
+            <div className="flex justify-between font-bold text-white bg-[#238DB2] p-2 rounded">
+              <span>Total Due</span>
+              <span>${totalDue.toFixed(2)}</span>
+            </div>
+          </CardContent>
+        </div>
+      </div>
+    </div>
+  );
+}

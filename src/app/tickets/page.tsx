@@ -1,6 +1,7 @@
 'use client'
 import TopProjectCards from "@/components/dashboard/TopProjectCard";
 import ProjectTable from "@/components/projects/AllProject-2";
+import TicketTable from "@/components/tickets/TicketTable";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { IoReturnUpBackOutline } from "react-icons/io5";
@@ -15,7 +16,7 @@ const TicketsPage = () => {
       </button>
       <TopProjectCards />
       {/* <DataTableDemo/> */}
-      <ProjectTable title={"All Tickets"} />
+      <TicketTable title={"All Tickets"} />
     </div>
   );
 };
