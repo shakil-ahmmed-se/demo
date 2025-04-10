@@ -171,7 +171,7 @@ const TeamDetails = () => {
             </div>
 
             {/* team overview */}
-            <div className="mx-7">
+            <div className="mx-10">
               <TeamOverView
                 clientName="Mark Lee"
                 companyName="Company Name"

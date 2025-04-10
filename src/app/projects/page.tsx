@@ -11,7 +11,7 @@ import { IoReturnUpBackOutline } from 'react-icons/io5'
 export default function ProjectsPage() {
   const route = useRouter()
   return (
-    <div className='flex-1 justify-center items-center w-full h-full'>
+    <div className='flex-1 justify-center items-center w-full h-full '>
     {/* // <div className='flex flex-col min-h-screen w-full'> */}
      <button
        onClick={()=> route.back()}

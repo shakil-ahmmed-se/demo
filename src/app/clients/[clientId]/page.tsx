@@ -137,7 +137,7 @@ const ClientDetails = () => {
            
 
             {/* team overview */}
-            <div className="mx-7">
+            <div className="mx-8">
               <ClientOverView
                 clientName="Mark Lee"
                 companyName="Company Name"

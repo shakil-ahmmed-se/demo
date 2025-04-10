@@ -1,5 +1,6 @@
 // components/ActivityLog.tsx
 import React from "react";
+import { HiDotsHorizontal } from "react-icons/hi";
 
 interface Activity {
   id: number;
@@ -9,7 +10,11 @@ interface Activity {
 
 const activities: Activity[] = [
   { id: 1, title: "Add New Client", time: "Today - 10:30 AM" },
-  { id: 2, title: "Payment Receive for Project HR Management", time: "Today - 10:30 AM" },
+  {
+    id: 2,
+    title: "Payment Receive for Project HR Management",
+    time: "Today - 10:30 AM",
+  },
 ];
 
 const ActivityLog: React.FC = () => {
@@ -24,9 +29,19 @@ const ActivityLog: React.FC = () => {
       <p className="text-gray-500 text-sm font-medium">Today</p>
       <div className="space-y-2 mt-2">
         {activities.map((activity) => (
-          <div key={activity.id} className="bg-gray-100 p-3 rounded-md shadow-sm">
-            <p className="text-gray-800 font-medium">{activity.title}</p>
-            <p className="text-gray-500 text-sm">{activity.time}</p>
+          <div key={activity.id} className="flex justify-between bg-gray-100 p-3 rounded-md shadow-sm">
+            <div
+              key={activity.id}
+              className=""
+            >
+              <p className="text-gray-800 font-medium">{activity.title}</p>
+              <p className="text-gray-500 text-sm">{activity.time}</p>
+            </div>
+            <div>
+              <button>
+                <HiDotsHorizontal />
+              </button>
+            </div>
           </div>
         ))}
       </div>

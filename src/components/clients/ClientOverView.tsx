@@ -28,7 +28,7 @@ const ClientOverView: React.FC<ClientOverviewProps> = ({ projects }) => {
     >("Payment Details");
 
     return (
-        <div className="p-6 bg-white rounded-lg shadow-md border my-10">
+        <div className="p-6 bg-white rounded-lg shadow-2xl drop-shadow-2xl border my-10">
             <div className="flex space-x-4 mb-6">
                 <button
                     className={`font-medium pb-1 ${activeTab === "Payment Details"

@@ -170,7 +170,7 @@ export default function TicketTable({title}: {title: any}) {
   };
 
   return (
-    <div className="p-4  rounded-lg border mt-10  shadow-md overflow-hidden">
+    <div className="p-4  rounded-lg border mt-10 mx-4 shadow-md overflow-hidden">
       <div className="flex justify-between items-center mb-4 flex-wrap gap-2">
         <h2 className="text-lg font-semibold">{title}</h2>
         <div className="flex flex-wrap items-center gap-2 relative">

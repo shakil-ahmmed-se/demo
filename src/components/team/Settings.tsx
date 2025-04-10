@@ -5,8 +5,8 @@ import { Switch } from '@/components/ui/switch';
 
 export default function Settings() {
   return (
-    <div className="flex items-center bg-gray-50 p-4">
-      <div className="bg-white shadow rounded-lg p-6 w-full drop-shadow-2xl">
+    <div className="flex items-center bg-gray-50 rounded-lg p-4 mx-9 mb-10 shadow-2xl drop-shadow-2xl">
+      <div className="bg-white   p-6 w-full ">
         <h2 className="text-lg font-semibold mb-6">Notification Settings</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {/* bill  */}

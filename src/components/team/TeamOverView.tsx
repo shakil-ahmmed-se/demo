@@ -27,7 +27,7 @@ const TeamOverView: React.FC<ClientOverviewProps> = ({ projects }) => {
   >("Payment Details");
 
   return (
-    <div className="p-6 bg-white rounded-lg shadow-md border my-10">
+    <div className="p-6 bg-white rounded-lg border my-10 shadow-2xl drop-shadow-2xl">
       {/* Tabs */}
       <div className="flex space-x-4 mb-6">
         <button

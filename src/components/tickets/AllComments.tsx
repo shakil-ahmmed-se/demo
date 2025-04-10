@@ -79,7 +79,7 @@ const AllComments = () => {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md py-5 mb-5 mx-9 drop-shadow-2xl mt-10 px-5 overflow-hidden">
+    <div className="bg-white rounded-lg shadow-md py-5 mb-5 mx-8 drop-shadow-2xl mt-10 px-5 overflow-hidden">
       <h3 className="text-lg font-semibold mb-4">All Comments</h3>
 
       {/* Comment List */}

@@ -25,12 +25,10 @@ const projects = [
     { name: "File Manager", progress: 75, paymentAmount: "" },
   ];
   return (
-    <div>
-      {/* <Header/>
-      <LoginPage/>
-      <Footer/> */}
+    <div className="mx-4">
+    
       <TopProjectCards />
-      <div className="flex w-full overflow-hidden">
+      <div className="flex w-full gap-x-4 overflow-hidden">
         <div className="w-4/5">
           <ProjectOverview
             projectName= {projects[0].name}
