@@ -25,7 +25,7 @@ export default function TaskDetails() {
 
   const [status, setStatus] = useState("Ongoing");
 
-  const handleStatusChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleStatusChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const {name, value} = e.target;
     setStatus(value);
   };
@@ -63,7 +63,7 @@ export default function TaskDetails() {
               <span className="font-medium text-gray-600">Status:</span>
               <RadioGroup.Root
                 value={status}
-                onValueChange={handleStatusChange}
+                onChange={handleStatusChange}
                 className="flex gap-4"
               >
                 <div className="flex items-center gap-2">

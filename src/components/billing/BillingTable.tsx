@@ -30,7 +30,7 @@ import AddProjectModal from "../projects/AddProjectDialog";
 
 interface Project {
   id: number;
-  invoice: string;
+  invoice?: string;
   project: string;
   assignTo: string;
   date: string;

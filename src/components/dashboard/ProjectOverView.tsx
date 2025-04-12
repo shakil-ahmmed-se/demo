@@ -76,12 +76,12 @@ const ProjectOverview: React.FC<ProjectOverviewProps> = ({
                 startAngle={90}
                 endAngle={-270}
               >
-                <RadialBar
+                {/* <RadialBar
                   minAngle={15}
                   background
                   clockWise={true}
                   dataKey="value"
-                />
+                /> */}
                 <PolarAngleAxis
                   type="number"
                   domain={[0, 100]}
@@ -115,12 +115,12 @@ const ProjectOverview: React.FC<ProjectOverviewProps> = ({
                 startAngle={90}
                 endAngle={-270}
               >
-                <RadialBar
+                {/* <RadialBar
                   minAngle={15}
                   background
                   clockWise={true}
                   dataKey="value"
-                />
+                /> */}
                 <PolarAngleAxis
                   type="number"
                   domain={[0, 100]}
