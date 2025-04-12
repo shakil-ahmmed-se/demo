@@ -30,7 +30,7 @@ const CustomTooltip = ({ active, payload }: { active?: boolean; payload?: { valu
 };
 
 const RevenueChart = () => {
-  const [activeIndex, setActiveIndex] = useState(9); // Highlighted bar (Oct)
+  const [activeIndex, setActiveIndex] = useState<number | undefined>(undefined); 
 
   return (
     <div className="p-6 bg-white border rounded-lg shadow-md w-full mt-16">
@@ -44,7 +44,7 @@ const RevenueChart = () => {
             dataKey="revenue"
             radius={[30, 30, 30, 30]}
             onMouseOver={(data, index) => setActiveIndex(index)}
-            onMouseOut={() => setActiveIndex(9)}
+            onMouseOut={() => setActiveIndex(undefined)}
           >
             {data.map((entry, index) => (
               <Cell

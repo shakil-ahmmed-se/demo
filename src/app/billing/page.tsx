@@ -10,6 +10,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@radix-ui/react-select";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { BsFillFileEarmarkBarGraphFill } from "react-icons/bs";
 import { CiExport } from "react-icons/ci";
@@ -20,20 +22,25 @@ import { IoReturnUpBackOutline } from "react-icons/io5";
 const BillingPage = () => {
   const [sortBy, setSortBy] = useState<string>("");
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const route = useRouter()
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
   };
   return (
     <div className="h-full overflow-x-hidden">
       <div className="flex justify-between items-center mt-5 mx-8">
-        <div className="text-[#238DB2] flex font-extrabold gap-x-1">
+        <button onClick={() => route.back()} className="text-[#238DB2] flex font-extrabold gap-x-1 cursor-pointer">
           <IoReturnUpBackOutline className="w-5 h-5" />
           <span>Billing</span>
-        </div>
+        </button>
 
         <div className="flex gap-x-3">
-        <FaRegListAlt className="text-[#238DB2] h-7 w-7" />
-        <BsFillFileEarmarkBarGraphFill className="w-7 h-6 text-gray-500" />
+          <Link href={`{/billing}`}>
+            <FaRegListAlt className="text-[#238DB2] h-7 w-7" />
+          </Link>
+          <Link href={`/billing/graphs`}>
+            <BsFillFileEarmarkBarGraphFill className="w-7 h-6 text-gray-500" />
+          </Link>
         </div>
       </div>
       <div className="flex justify-between items-center mb-4 flex-wrap gap-2 mx-10 mt-10">
@@ -61,9 +68,9 @@ const BillingPage = () => {
             <CiExport />
             <span className="text-[#238DB2]">Export Data</span>
           </Button>
-          <Button variant="outline" className="bg-[#238DB2] text-white">
-            <FaRegPlusSquare />
-            <span className=" bg-[#238DB2] text-white">Generate Invoice</span>
+          <Button variant="outline" className="bg-[#238DB2] hover:text-black text-white cursor-pointer  ">
+            <FaRegPlusSquare className="" />
+            <span className="  text-white">Generate Invoice</span>
           </Button>
         </div>
       </div>

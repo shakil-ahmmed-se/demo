@@ -7,6 +7,8 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useParams, useRouter } from "next/navigation";
 import { FiEdit } from "react-icons/fi";
+import { Switch } from "@/components/ui/switch";
+import { Label } from "@/components/ui/label";
 
 const task = {
   id: "5866748",
@@ -25,8 +27,8 @@ export default function TaskDetails() {
 
   const [status, setStatus] = useState("Ongoing");
 
-  const handleStatusChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const {name, value} = e.target;
+
+  const handleStatusChange = (value: any) => {
     setStatus(value);
   };
 
@@ -45,7 +47,7 @@ export default function TaskDetails() {
       <div className="bg-white p-6 rounded-lg shadow-md mb-6">
         <div className="flex justify-between items-center mb-4">
           <h1 className="text-2xl font-bold">Task Details</h1>
-          <button className="flex items-center gap-2 text-[#238DB2] hover:text-[#238DB2]">
+          <button className="flex items-center gap-2 bg-[#238DB2] text-white px-4 py-2 rounded-md cursor-pointer">
             <FiEdit />
             Edit
           </button>
@@ -114,9 +116,9 @@ export default function TaskDetails() {
           <p className="text-gray-600">
             <span className="font-medium">Working day:</span> {task.workingDays}
           </p>
-          <div>
-            <span>Task Status</span>
-
+          <div className="flex items-center space-x-2 ">
+            <Label htmlFor="airplane-mode my-2 ">Task Status</Label>
+            <Switch id="airplane-mode" className="data-[state=checked]:bg-[#238DB2]" />
           </div>
         </div>
       </div>

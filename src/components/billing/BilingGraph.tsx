@@ -73,7 +73,9 @@ const BilingGraph = () => {
         </div>
 
         <div className="flex gap-x-3">
-          <FaRegListAlt className="text-gray-500 h-7 w-7" />
+          <Link href={`/billing`}>
+            <FaRegListAlt className="text-gray-500 h-7 w-7" />
+          </Link>
           <BsFillFileEarmarkBarGraphFill className="text-[#238DB2] w-7 h-6 " />
         </div>
       </div>

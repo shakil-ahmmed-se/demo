@@ -7,6 +7,7 @@ import Image from "next/image";
 import { useParams } from "next/navigation";
 import React, { useState } from "react";
 import { TbEdit } from "react-icons/tb";
+import { PiUploadFill } from "react-icons/pi";
 
 interface Project {
   id: number;
@@ -127,12 +128,20 @@ const BillingDetails = () => {
           <div key={team.id}>
             <div
               key={team.id}
-              className="flex  items-center gap-x-2 mx-10 my-5"
+              className="flex justify-between  items-center gap-x-2 mx-10 my-5"
             >
               <div>
                 <h4 className="text-gray-500 "><span className="font-bold text-black">Invoice Id:</span> {team.invoice}</h4>
                 <h3 className="text-xl text-gray-500"><span className="text-bold text-black">Projects:</span> {team.project}</h3>
               </div>
+              <button className="flex items-center cursor-pointer gap-x-2 bg-[#238DB2] text-white px-4 py-2 rounded-md hover:bg-[#68abc4]">
+                <div className="">
+                <PiUploadFill />
+                </div>
+                <span>
+                  Download PDF
+                </span>
+              </button>
             </div>
 
             {/* profile info div */}
