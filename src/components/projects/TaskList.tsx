@@ -9,6 +9,7 @@ import { EyeIcon, PencilIcon, TrashIcon } from "lucide-react";
 import Image from "next/image";
 import { BsSearch } from "react-icons/bs";
 import { IoIosClose } from "react-icons/io";
+import Link from "next/link";
 
 interface Task {
   id: number;
@@ -102,7 +103,7 @@ const tasksData: Task[] = [
   },
 ];
 
-export default function TaskList() {
+export default function TaskList({projectId}: {projectId: number}) {
   const [currentPage, setCurrentPage] = useState(1);
   const [tasks, setTasks] = useState<Task[]>(tasksData);
   const [search, setSearch] = useState<string>("");
@@ -128,11 +129,7 @@ export default function TaskList() {
     setCurrentPage(1);
   };
 
-  // const filterTasks = useMemo(() => {
-  //   return tasks.filter((task) =>
-  //     task.task.toLowerCase().includes(search.toLowerCase())
-  //   );
-  // }, [search, tasks]);
+
 
   const filterTasks = useMemo(() => {
     let result = [...tasks];
@@ -274,7 +271,7 @@ export default function TaskList() {
                       width={30}
                       height={20}
                       alt="profile image"
-                      className="rounded-2xl"
+                      className="rounded-2xl w-8 h-8"
                     />
                     <span>{task.assignedPerson}</span>
                   </div>
@@ -301,14 +298,16 @@ export default function TaskList() {
                 </td>
                 <td className="py-4 px-4">
                   <div className="flex gap-2">
-                    <Button variant="ghost" size="icon" className="h-8 w-8">
-                      <EyeIcon className="h-4 w-4 text-gray-400" />
+                    <Link href={`/projects/${projectId}/${task.id}`}>
+                    <Button variant="ghost" size="icon" className="h-8 w-8 cursor-pointer">
+                      <EyeIcon className="h-4 w-4 text-gray-500" />
                     </Button>
-                    <Button variant="ghost" size="icon" className="h-8 w-8">
-                      <PencilIcon className="h-4 w-4 text-gray-400" />
+                    </Link>
+                    <Button variant="ghost" size="icon" className="h-8 w-8 cursor-pointer">
+                      <PencilIcon className="h-4 w-4 text-gray-500" />
                     </Button>
-                    <Button variant="ghost" size="icon" className="h-8 w-8">
-                      <TrashIcon className="h-4 w-4 text-gray-400" />
+                    <Button variant="ghost" size="icon" className="h-8 w-8 cursor-pointer">
+                      <TrashIcon className="h-4 w-4 text-gray-500" />
                     </Button>
                   </div>
                 </td>

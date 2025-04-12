@@ -266,7 +266,7 @@ export default function ProjectDetailPage() {
           <MileStoneBar />
         </div>
         <div>
-          <TaskList />
+          <TaskList projectId={projectId} />
         </div>
       </div>
     </div>
